@@ -1,19 +1,19 @@
 import { render } from "solid-js/web";
 
-import CounterView, { Counter } from "./counter/CounterView";
+import TodosView, {Todos} from "./counter/TodosView.tsx";
+import TodosModel from "./counter/TodosModel.ts";
+
+const initialModel: TodosModel = {
+  todos: [
+    {id: "0", text: "Hello, World!", completed: false},
+  ]
+}
 
 render(function () {
-  let counter: CounterView;
-  let counter2: CounterView;
+  let todos: TodosView; // Use this reference to manipulate the view through its controller
   return (
       <div>
-        <Counter ref={counter!} />
-        <br />
-        <button onClick={(_) => counter.controller.reset()}>Reset</button>
-        <br />
-        <Counter ref={counter2!} />
-        <br />
-        <button onClick={(_) => counter2.controller.reset()}>Reset</button>
+        <Todos ref={todos!} model={initialModel}/>
       </div>
   );
 }, document.getElementById("root")!);
