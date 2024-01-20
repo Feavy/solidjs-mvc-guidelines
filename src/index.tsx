@@ -1,7 +1,7 @@
 import { render } from "solid-js/web";
 
-import TodosView, {Todos} from "./counter/TodosView.tsx";
-import TodosModel from "./counter/TodosModel.ts";
+import TodosView, {Todos} from "./todos/TodosView.tsx";
+import TodosModel from "./todos/TodosModel.ts";
 
 const initialModel = new TodosModel([
     { id: "0", text: "Hello, World!", completed: false }
