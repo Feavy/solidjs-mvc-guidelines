@@ -50,6 +50,7 @@ export default class TodosView {
 }
 
 export function Todos(props: TodosProps) {
-  const controller = new TodosController(props.model || {todos: []});
-  return new TodosView(controller.model, controller, props.ref as any).render();
+  const model = props.model || new TodosModel();
+  const controller = new TodosController(model);
+  return new TodosView(model, controller, props.ref as any).render();
 }
